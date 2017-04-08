@@ -48,7 +48,18 @@ class ArchiwebBridge extends BridgeAbstract {
       $item['timestamp'] = DateTime::createFromFormat('d.m.y H:iP', trim(end($authorParts)) . '+02:00')->getTimestamp();
 
       $content = '';
-      foreach ($itemDom->find('div.text *, div.text text, div.vertical_text *, div.vertical_text text') as $child) {
+      foreach ($itemDom->find('div.text *, div.text text, div.vertical_text *, div.vertical_text text') as $childIndex => $child) {
+        $childHtml = (string) $child;
+
+        if ($childIndex === 0 || $childIndex === 1) {
+          $coverImages = $child->find('img');
+          if (isset($coverImages[0])) {
+            $coverImageHtml = (string) $coverImages[0];
+            $childHtml = str_replace($coverImageHtml, '', $childHtml);
+            $content .= '<div>' . $coverImageHtml . '</div>';
+          }
+        }
+
         if ($child->{'class'} === 'cleaner') {
           break;
         }
@@ -57,7 +68,7 @@ class ArchiwebBridge extends BridgeAbstract {
           continue;
         }
 
-        $content .= (string) $child;
+        $content .= $childHtml;
       }
 
       $item['content'] = $content;
