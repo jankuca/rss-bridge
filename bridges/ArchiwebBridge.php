@@ -71,6 +71,9 @@ class ArchiwebBridge extends BridgeAbstract {
         $content .= $childHtml;
       }
 
+      $content = preg_replace('/<span style="font-weight: bold;">(.*?)<\/span>/', '<strong>$1</strong>', $content);
+      $content = preg_replace('/<span style="font-style: italic;">(.*?)<\/span>/', '<em>$1</em>', $content);
+
       $item['content'] = $content;
 
       $this->items[] = $item;
