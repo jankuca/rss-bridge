@@ -20,7 +20,7 @@ define('PROXY_BYBRIDGE', false);
 define('PROXY_NAME', 'Hidden Proxy Name');
 
 date_default_timezone_set('UTC');
-error_reporting(0);
+error_reporting(-1);
 
 // Specify directory for cached files (using FileCache)
 define('CACHE_DIR', __DIR__ . '/cache');
