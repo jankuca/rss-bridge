@@ -64,6 +64,26 @@ class Forum24Bridge extends BridgeAbstract {
         $content = $sourceItem->content;
       }
 
+      // NOTE: The post cover photo is prepended to the content.
+      if ($sourceItem->post_thumbnail) {
+        $coverImageLabel = '';
+        if ($sourceItem->post_thumbnail_description) {
+          $coverImageLabel .= trim($sourceItem->post_thumbnail_description);
+        }
+        if ($sourceItem->post_thumbnail_copyright) {
+          $coverImageLabel .= ' &copy; ' . trim($sourceItem->post_thumbnail_copyright);
+        }
+        $content =
+          '<div>' .
+            '<img' .
+              ' src="' . $sourceItem->post_thumbnail . '"' .
+              ' alt="' . htmlspecialchars($coverImageLabel) . '"' .
+              ' title="' . htmlspecialchars($coverImageLabel) . '"' .
+            '>' .
+          '</div>' .
+          $content;
+      }
+
       $item['content'] = $content;
 
       $this->items[] = $item;
