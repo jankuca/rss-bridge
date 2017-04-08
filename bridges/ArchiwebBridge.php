@@ -81,4 +81,10 @@ class ArchiwebBridge extends BridgeAbstract {
   public function getURI() {
     return self::URI . 'news.php?type=' . $this->getInput('rubrika_id');
   }
+
+  public function getExtraInfos() {
+    return array_merge(parent::getExtraInfos(), array(
+      'icon' => self::URI . 'favicon.ico',
+    ));
+  }
 }
