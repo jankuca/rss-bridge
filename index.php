@@ -79,6 +79,7 @@ ini_set('user_agent', $userAgent);
 // default whitelist
 $whitelist_file = './whitelist.txt';
 $whitelist_default = array(
+	"ArchiwebBridge",
 	"Forum24Bridge",
 );
 
