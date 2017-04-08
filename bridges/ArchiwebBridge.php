@@ -78,7 +78,7 @@ class ArchiwebBridge extends BridgeAbstract {
 
       $this->items[] = $item;
 
-      if (count($this->items) === 20) {
+      if (count($this->items) === 40) {
         break;
       }
     }
