@@ -21,7 +21,11 @@ class MrssFormat extends FormatAbstract {
 			$uri = 'https://github.com/sebsauvage/rss-bridge';
 		}
 
-		$icon = $this->xml_encode('http://icons.better-idea.org/icon?url='. $uri .'&size=64');
+		if (!empty($extraInfos['icon'])) {
+			$icon = $this->xml_encode($extraInfos['icon']);
+		} else {
+			$icon = $this->xml_encode('http://icons.better-idea.org/icon?url='. $uri .'&size=64');
+		}
 
 		$items = '';
 		foreach($this->getItems() as $item){
