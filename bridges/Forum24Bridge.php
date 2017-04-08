@@ -101,4 +101,10 @@ class Forum24Bridge extends BridgeAbstract {
   public function getURI() {
     return self::URI . 'wp-json/wp/v2/posts?categories='.$this->getInput('rubrika_id');
   }
+
+  public function getExtraInfos() {
+    return array_merge(parent::getExtraInfos(), array(
+      'icon' => self::URI . 'wp-content/themes/forum24/assets/images/favicon/favicon-32x32.png',
+    ));
+  }
 }
