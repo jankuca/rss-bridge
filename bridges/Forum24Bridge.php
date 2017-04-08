@@ -48,6 +48,7 @@ class Forum24Bridge extends BridgeAbstract {
           }
 
           if (strpos($child->{'class'}, 'article-social-links') !== FALSE ||
+              strpos($child->{'class'}, 'prolink-big') !== FALSE ||
               strpos($child->{'class'}, 'author-box') !== FALSE) {
             continue;
           }
