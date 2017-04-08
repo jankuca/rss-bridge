@@ -79,22 +79,8 @@ ini_set('user_agent', $userAgent);
 // default whitelist
 $whitelist_file = './whitelist.txt';
 $whitelist_default = array(
-	"BandcampBridge",
-	"CryptomeBridge",
-	"DansTonChatBridge",
-	"DuckDuckGoBridge",
-	"FacebookBridge",
-	"FlickrExploreBridge",
-	"GooglePlusPostBridge",
-	"GoogleSearchBridge",
-	"IdenticaBridge",
-	"InstagramBridge",
-	"OpenClassroomsBridge",
-	"PinterestBridge",
-	"ScmbBridge",
-	"TwitterBridge",
-	"WikipediaBridge",
-	"YoutubeBridge");
+	"Forum24Bridge",
+);
 
 try {
 
